@@ -1,0 +1,66 @@
+//Create a Book class with member variables id, name, author, and quantity to store
+details of each issued book. The Book class should include a parameterized
+constructor. Design a Library class that creates a HashMap of books, where the key is
+an Integer (representing the book ID) and the value is a Book object. Instantiate at
+least two Book objects and display the collection of books stored in the HashMap.
+Use appropriate methods of the HashMap class to perform the following operations:
+(a) Check if a particular book name is present on the map.
+(b) Remove a book entry by deleting the value associated with a specific key.
+
+
+import java.util.Scanner;
+
+class Book {
+    int id;
+    String name;
+    String author;
+    int quantity;
+
+    Book(int id, String name, String author, int quantity) {
+        this.id = id;
+        this.name = name;
+        this.author = author;
+        this.quantity = quantity;
+    }
+}
+
+public class Library {
+    public static void main(String[] args) {
+        HashMap<Integer, Book> map = new HashMap<>();
+
+        Book b1 = new Book(1, "Java", "James", 5);
+        Book b2 = new Book(2, "Python", "Guido", 3);
+
+        map.put(b1.id, b1);
+        map.put(b2.id, b2);
+
+       
+        System.out.println("Books List:");
+        for (Integer key : map.keySet()) {
+            Book b = map.get(key);
+            System.out.println(b.id + " " + b.name + " " + b.author + " " + b.quantity);
+        }
+
+        // Check if 'Java' book is present
+        boolean found = false;
+        for (Integer key : map.keySet()) {
+            if (map.get(key).name.equals("Java")) {
+                found = true;
+            }
+        }
+        if (found)
+            System.out.println("\nJava Book Found");
+        else
+            System.out.println("\nJava Book Not Found");
+
+        // Remove Book with id 2
+        map.remove(2);
+
+        // Display After Removal
+        System.out.println("\nBooks After Removal:");
+        for (Integer key : map.keySet()) {
+            Book b = map.get(key);
+            System.out.println(b.id + " " + b.name + " " + b.author + " " + b.quantity);
+        }
+    }
+}

@@ -1,0 +1,68 @@
+//Write a Java program that includes a Car class and a CarApp class. The Car class
+should have private fields: modelNo (int), name (String), and stock (int). Define a
+parameterized constructor and override the compareTo method as public int
+compareTo(Car car) to enable sorting of cars based on the total stock available.
+In the CarApp class, create an ArrayList of Car objects, sort them, and print the
+updated sorted list.
+
+
+
+import java.util.Scanner;
+
+
+class Car implements Comparable<Car> {
+    private int modelNo;
+    private String name;
+    private int stock;
+
+    
+    public Car(int modelNo, String name, int stock) {
+        this.modelNo = modelNo;
+        this.name = name;
+        this.stock = stock;
+    }
+
+  
+    public int getModelNo() {
+        return modelNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    
+    public int compareTo(Car car) {
+        return this.stock - car.stock;
+    }
+}
+
+
+public class CarApp {
+    public static void main(String[] args) {
+        ArrayList<Car> list = new ArrayList<>();
+
+       
+        list.add(new Car(2015, "BMW", 55));
+        list.add(new Car(2017, "Audi", 45));
+        list.add(new Car(2018, "Kia", 20));
+        list.add(new Car(2020, "MG", 13));
+        list.add(new Car(2013, "Creta", 10));
+
+        
+        Collections.sort(list);
+
+      
+        System.out.println("Sorted Car List:");
+        for (Car c : list) {
+            System.out.println(c.getModelNo() + " " + c.getName() + " " + c.getStock());
+        }
+    }
+}
+
+
+

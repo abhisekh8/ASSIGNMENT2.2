@@ -1,0 +1,94 @@
+//Create a Student class with member variables name, age, and mark, along with the
+necessary getter and setter methods. Implement a LinkedList of Student objects and
+perform the following operations:
+(a) Display the list of students.
+(b) Prompt the user to enter a Student object and check its existence in the list. Specify
+whether the search is based on reference comparison or content comparison using thE contains method.
+(c) Remove a specified Student object from the list.
+(d) Count the number of Student objects present in the list.
+(e) Override the equals method to compare two Student objects based on their values
+rather than references.
+
+
+import java.util.Scanner;
+
+
+class Student {
+    private String name;
+    private int age;
+    private int mark;
+
+  
+    Student(String name, int age, int mark) {
+        this.name = name;
+        this.age = age;
+        this.mark = mark;
+    }
+
+   
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public int getMark() {
+        return mark;
+    }
+
+   
+    public boolean equals(Object obj) {
+        if (obj instanceof Student) {
+            Student s = (Student) obj;
+            return this.name.equals(s.name) && this.age == s.age && this.mark == s.mark;
+        }
+        return false;
+    }
+}
+
+public class StudentApp {
+    public static void main(String[] args) {
+        LinkedList<Student> list = new LinkedList<>();
+
+       
+        list.add(new Student("John", 20, 80));
+        list.add(new Student("Sara", 21, 85));
+        list.add(new Student("Mike", 19, 75));
+
+        // (a)Display Students
+        System.out.println("Student List:");
+        for (Student s : list) {
+            System.out.println(s.getName() + " " + s.getAge() + " " + s.getMark());
+        }
+
+        Scanner sc = new Scanner(System.in);
+
+        // (b) Search Student
+        System.out.println("\nEnter name age mark to search:");
+        String name = sc.next();
+        int age = sc.nextInt();
+        int mark = sc.nextInt();
+
+        Student s1 = new Student(name, age, mark);
+
+        if (list.contains(s1)) {
+            System.out.println("Student Found");
+        } else {
+            System.out.println("Student Not Found");
+        }
+
+        // (c) Remove Student
+        list.remove(s1);
+
+        // (d) Display after removal
+        System.out.println("After Removal:");
+        for (Student s : list) {
+            System.out.println(s.getName() + " " + s.getAge() + " " + s.getMark());
+        }
+
+        // (e) Count Students
+        System.out.println("Total Students: " + list.size());
+    }
+}

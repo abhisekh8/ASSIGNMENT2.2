@@ -5,9 +5,9 @@ keep track of the elements and identify the missing number.
 
 
 
-import java.util.*;
+import java.util.Scanner;
 
-public class SmallestMissingPositive {
+public class Q10 {
     public static void main(String[] args) {
        
         int[] numbers = {3, 4, -1, 1};

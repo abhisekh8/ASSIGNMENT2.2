@@ -48,7 +48,7 @@ class Student {
     }
 }
 
-public class StudentApp {
+public class Q4 {
     public static void main(String[] args) {
         LinkedList<Student> list = new LinkedList<>();
 

@@ -9,7 +9,7 @@ TreeSet.
 
 import java.util.Scanner;
 
-public class SimpleTreeSet {
+public class Q6 {
     public static void main(String[] args) {
        
         TreeSet<Integer> set = new TreeSet<>();

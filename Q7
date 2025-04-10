@@ -27,7 +27,7 @@ class Address {
     }
 }
 
-public classQ8 {
+public classQ7 {
     public static void main(String[] args) {
         
         TreeMap<String, Address> map = new TreeMap<>();

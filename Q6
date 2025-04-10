@@ -1,0 +1,43 @@
+//Write a program to create a TreeSet of Integer type and perform the following
+operations:
+(a) Display the elements of the TreeSet.
+(b) Prompt the user to enter a number and check whether the number is present in the
+TreeSet.
+(c) Remove a specified element from the TreeSet.
+
+
+
+import java.util.Scanner;
+
+public class SimpleTreeSet {
+    public static void main(String[] args) {
+       
+        TreeSet<Integer> set = new TreeSet<>();
+        
+        
+        set.add(10);
+        set.add(20);
+        set.add(30);
+        set.add(40);
+        set.add(50);
+
+        // (a) Display elements
+        System.out.println("TreeSet Elements: " + set);
+
+        // (b) Check if a number is present
+        Scanner sc = new Scanner(System.in);
+        System.out.print("\nEnter a number to check: ");
+        int num = sc.nextInt();
+        if (set.contains(num)) {
+            System.out.println(num + " is present in the TreeSet.");
+        } else {
+            System.out.println(num + " is NOT present in the TreeSet.");
+        }
+
+        // (c) Remove an element
+        System.out.print("\nEnter a number to remove: ");
+        int removeNum = sc.nextInt();
+        set.remove(removeNum);
+        System.out.println("After removal, TreeSet Elements: " + set);
+    }
+}

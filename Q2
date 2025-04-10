@@ -1,0 +1,71 @@
+//Write a Java program that includes a User class and an ArrayListUser class. The User
+class should have private fields for name and age, along with a parameterized
+constructor and getter/setter methods for these attributes. The ArrayListUser class
+should create an ArrayList of User objects. After adding user objects, it should
+retrieve and print their name and age. Additionally, the program should sort the users
+based on age and print the updated list of users using getter methods.
+
+
+
+import java.util.Scanner;
+
+
+class User {
+    private String name;
+    private int age;
+
+   
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+   
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+  
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+}
+
+
+public class ArrayListUser {
+    public static void main(String[] args) {
+        ArrayList<User> users = new ArrayList<>();
+
+       
+        users.add(new User("A", 25));
+        users.add(new User("B", 20));
+        users.add(new User("C", 20));
+
+     
+        System.out.println("Users before sorting:");
+        for (User u : users) {
+            System.out.println(u.getName() + " - " + u.getAge());
+        }
+
+      
+        Collections.sort(users, new Comparator<User>() {
+            public int compare(User u1, User u2) {
+                return u1.getAge() - u2.getAge();
+            }
+        });
+
+        
+        System.out.println("\nUsers after sorting by age:");
+        for (User u : users) {
+            System.out.println(u.getName() + " - " + u.getAge());
+        }
+    }
+}

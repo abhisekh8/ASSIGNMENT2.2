@@ -9,7 +9,7 @@ are anagrams.
 
 import java.util.Scanner;
 
-public class AnagramChecker {
+public class Q8 {
     public static void main(String[] args) {
         
         String str1 = "listen";

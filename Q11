@@ -3,9 +3,9 @@ min-heap using the PriorityQueue class to store the elements from the array. Fin
 dequeue the elements from the PriorityQueue using the appropriate methods and print
 them.
 
-import java.util.*;
+import java.util.Scanner;
 
-public class MinHeapExample {
+public class Q11 {
     public static void main(String[] args) {
        
         int[] arr = {1, 2, 10, 8, 7, 3, 4, 6, 5, 9};
